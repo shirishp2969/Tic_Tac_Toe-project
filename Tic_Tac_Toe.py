@@ -19,6 +19,8 @@ rem_positions=[1,2,3,4,5,6,7,8,9]
 win=False
 q=5
 
+# This function will check current places where X is placed and will check if 2 positions of winning possibilities of X are
+# filled then it will predict next O position accordingly
 def predict_o(x_place,x_positions,x_win_positions):
     for place in x_place:
         p = 0
@@ -37,6 +39,7 @@ def predict_o(x_place,x_positions,x_win_positions):
                                 return number
             # print("satisfied")
 
+# This function will check if X is placed in horizontal, vertical, diagonal positions and return true if satisfies
 def check_winning(x_win_positions,x_positions,o_win_positions,o_positions):
     for position in x_win_positions:
         x_win_prob = 0
@@ -47,6 +50,7 @@ def check_winning(x_win_positions,x_positions,o_win_positions,o_positions):
                 print("X Win")
                 return True
 
+# This function will check if O is placed in horizontal, vertical, diagonal positions and return true if satisfies
 def check_winning_o(x_win_positions,x_positions,o_win_positions,o_positions):
     for position in o_win_positions:
         o_win_prob = 0
@@ -57,6 +61,7 @@ def check_winning_o(x_win_positions,x_positions,o_win_positions,o_positions):
                 print("O Win")
                 return True
 
+# This function will put X in user choosen place and return updated string
 def put_position_x(user_input,put,return_string):
     if user_input==1:
         x_positions.append(1)
@@ -86,6 +91,7 @@ def put_position_x(user_input,put,return_string):
         x_positions.append(9)
         return return_string.replace('9', put)
 
+# This function will put O in predicted o position and return updated string
 def put_position_o(user_input,put,return_string):
     if user_input==1:
         o_positions.append(1)
